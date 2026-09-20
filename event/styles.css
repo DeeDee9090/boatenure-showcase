@@ -1,0 +1,80 @@
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../assets/fonts/inter-latin.woff2") format("woff2");
+}
+
+:root {
+  --teal: #3ab5ae;
+  --teal-dark: #238f89;
+  --gold: #c9a84c;
+  --ink: #0c1220;
+  --muted: #68747a;
+  --white: #fff;
+}
+
+* { box-sizing: border-box; }
+html, body { min-height: 100%; }
+body { margin: 0; color: white; background: var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; height: auto; }
+
+.event-stage { min-height: calc(100vh - 76px); display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(420px, .9fr); align-items: center; gap: clamp(60px, 8vw, 130px); padding: clamp(55px, 7vh, 90px) max(5vw, calc((100vw - 1320px) / 2)); background-image: radial-gradient(circle at 80% 42%, rgba(58,181,174,.13), transparent 34%), linear-gradient(rgba(58,181,174,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(58,181,174,.035) 1px, transparent 1px); background-size: auto, 64px 64px, 64px 64px; }
+.event-copy { max-width: 700px; }
+.brand { display: block; width: 210px; margin-bottom: clamp(55px, 8vh, 95px); }
+.eyebrow { display: flex; align-items: center; gap: 12px; margin: 0 0 22px; color: var(--gold); font-size: 12px; font-weight: 850; letter-spacing: .17em; }
+.eyebrow i { width: 28px; height: 1px; background: currentColor; }
+h1 { max-width: 760px; margin: 0; font-size: clamp(58px, 6.3vw, 96px); line-height: .94; letter-spacing: -.068em; }
+.lede { max-width: 660px; margin: 30px 0 0; color: rgba(255,255,255,.66); font-size: clamp(17px, 1.45vw, 22px); line-height: 1.65; }
+.proof-points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 44px; }
+.proof-points span { display: grid; gap: 7px; padding-left: 15px; border-left: 2px solid var(--teal); }
+.proof-points b { font-size: 13px; }
+.proof-points small { color: rgba(255,255,255,.45); font-size: 11px; line-height: 1.5; }
+
+.scan-card { width: min(100%, 520px); justify-self: end; padding: 34px; border-radius: 24px; color: var(--ink); background: white; text-align: center; box-shadow: 0 35px 110px rgba(0,0,0,.38); }
+.scan-card > p { margin: 0 0 20px; color: var(--gold); font-size: 11px; font-weight: 850; letter-spacing: .17em; }
+.qr-link { display: block; width: min(100%, 360px); margin: 0 auto; }
+.scan-card h2 { margin: 20px 0 8px; font-size: 31px; letter-spacing: -.045em; }
+.scan-card code { display: block; overflow-wrap: anywhere; color: var(--teal-dark); font-size: 13px; }
+.scan-card > small { display: block; margin-top: 9px; color: var(--muted); font-size: 12px; line-height: 1.5; }
+.download-links { display: flex; justify-content: center; gap: 10px; margin-top: 22px; }
+.download-links a { padding: 10px 14px; border: 1px solid #d9e5e4; border-radius: 8px; color: var(--teal-dark); font-size: 12px; font-weight: 800; }
+.download-links a:hover { border-color: var(--teal); background: #e7f6f5; }
+
+footer { min-height: 76px; display: flex; align-items: center; justify-content: center; gap: 18px; padding: 18px; color: rgba(255,255,255,.5); background: #070c17; font-size: 13px; }
+footer a { color: var(--teal); font-weight: 800; }
+footer b { margin-left: 5px; }
+
+@media (max-width: 900px) {
+  .event-stage { min-height: auto; grid-template-columns: 1fr; gap: 55px; padding: 55px 24px; }
+  .event-copy { max-width: none; text-align: center; }
+  .brand { width: 180px; margin: 0 auto 55px; }
+  .eyebrow { justify-content: center; }
+  h1 { font-size: clamp(52px, 12vw, 78px); }
+  .lede { margin-inline: auto; }
+  .proof-points { max-width: 640px; margin-inline: auto; text-align: left; }
+  .scan-card { justify-self: center; }
+}
+
+@media (max-width: 560px) {
+  .event-stage { padding: 42px 18px; }
+  .brand { width: 155px; margin-bottom: 42px; }
+  .eyebrow { font-size: 10px; }
+  h1 { font-size: clamp(46px, 14vw, 64px); }
+  .lede { font-size: 16px; }
+  .proof-points { grid-template-columns: 1fr; gap: 14px; margin-top: 34px; }
+  .scan-card { padding: 24px 18px; border-radius: 18px; }
+  .qr-link { width: min(100%, 290px); }
+  .scan-card h2 { font-size: 27px; }
+  .scan-card code { font-size: 11px; white-space: nowrap; }
+  .download-links { flex-direction: column; }
+  footer { align-items: center; flex-direction: column; gap: 7px; text-align: center; }
+}
+
+@media print {
+  @page { size: landscape; margin: 0; }
+  .event-stage { min-height: 100vh; }
+  footer { display: none; }
+}
