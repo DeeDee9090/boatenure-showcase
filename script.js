@@ -1,208 +1,142 @@
-const currency = new Intl.NumberFormat("en-GB", {
-  style: "currency",
-  currency: "GBP",
-  maximumFractionDigits: 0,
-});
-
-const workspaceTitles = {
-  analyser: "Deal Analyser",
-  area: "Area Intelligence",
-  clause: "ClauseCheck",
-  renovation: "Renovation Planner",
+const screens = {
+  dashboard: {
+    title: "Dashboard",
+    description: "Start from a clear product home base that routes each user to the right level of analysis and support.",
+    points: ["Quick and full analysis entry points", "Direct access to sourcing, legal review and renovation", "Guided tour, pricing and usage visibility"],
+    image: "assets/screens/dashboard.jpg",
+    alt: "BoaTenure Dashboard showing the main product entry points and feature groups",
+    href: "https://app.dbpropertiesinvestments.co.uk/dashboard",
+  },
+  deal: {
+    title: "Full Deal Analyser",
+    description: "Build a complete investment case with visible assumptions, live metrics and a strategy-specific verdict.",
+    points: ["Purchase, finance, income, costs, tax and exit", "Personal versus limited-company comparison", "Listing photos, area evidence and PDF reporting"],
+    image: "assets/screens/deal-analyser.jpg",
+    alt: "BoaTenure Deal Analyser showing a real property example, financial inputs, verdict and metrics",
+    href: "https://app.dbpropertiesinvestments.co.uk/deals",
+  },
+  feed: {
+    title: "Deal Feed",
+    description: "Define an investment area and criteria, then discover and manage sourced opportunities in one pipeline.",
+    points: ["Rightmove, OnTheMarket and Auction House UK scanning", "Map-based search, filters and saved-search alerts", "Price changes, listing checks and follow-up reminders"],
+    image: "assets/screens/feed.jpg",
+    alt: "BoaTenure Deal Feed with map-based search and sourcing controls",
+    href: "https://app.dbpropertiesinvestments.co.uk/sourcing",
+  },
+  clause: {
+    title: "ClauseCheck",
+    description: "Turn a multi-document auction legal pack into a structured review with traceable findings and actions.",
+    points: ["Priority, attention and information findings", "Source citations, deal fit and cost impact", "Before-you-bid actions, checklist and PDF export"],
+    image: "assets/screens/clausecheck.jpg",
+    alt: "Real BoaTenure ClauseCheck sample report showing legal-pack findings",
+    href: "https://app.dbpropertiesinvestments.co.uk/clausecheck/sample",
+  },
+  scenarios: {
+    title: "Scenario Modelling",
+    description: "Understand how returns change when rates, rents, voids, costs and capital growth move away from the base case.",
+    points: ["Best, base and worst-case comparison", "Interest-rate and sensitivity analysis", "Monte Carlo ranges and year-by-year projections"],
+    image: "assets/screens/scenarios.jpg",
+    alt: "BoaTenure Scenario Modelling screen comparing worst, base and best cases",
+    href: "https://app.dbpropertiesinvestments.co.uk/scenarios",
+  },
+  renovation: {
+    title: "Renovation Planner",
+    description: "Connect physical-property work to the numbers using floorplans, viewing photos and value-uplift estimates.",
+    points: ["AI floorplan and room analysis", "Multi-photo condition survey", "Combined scope, cost and post-renovation metrics"],
+    image: "assets/screens/renovation.jpg",
+    alt: "BoaTenure Renovation Planner with floorplan upload and condition-survey tabs",
+    href: "https://app.dbpropertiesinvestments.co.uk/renovation-planner",
+  },
+  calculators: {
+    title: "Specialist Calculators",
+    description: "Use a model designed around the structure of the transaction rather than forcing every opportunity into one template.",
+    points: ["13 tax, strategy and control-method tools", "Shared, consistent financial logic", "Direct handoff to and from the Deal Analyser"],
+    image: "assets/screens/calculators.jpg",
+    alt: "BoaTenure Calculators hub showing its grouped property strategy tools",
+    href: "https://app.dbpropertiesinvestments.co.uk/calculator",
+  },
+  areas: {
+    title: "Area Research",
+    description: "Start with a city or enrich a specific deal with real local market, property, access and risk evidence.",
+    points: ["Land Registry-backed price and yield context", "Rent, demographics, schools and transport", "EPC, planning, flood, crime and policy intelligence"],
+    image: "assets/screens/areas.jpg",
+    alt: "BoaTenure UK Buy-to-Let Areas screen",
+    href: "https://app.dbpropertiesinvestments.co.uk/areas",
+  },
 };
 
-const calculatorData = {
-  brrr: {
-    count: "01 / 06",
-    kicker: "BUY · REFURBISH · REFINANCE · RENT",
-    title: "BRRR calculator",
-    copy: "Model refurbishment, post-works value, refinance proceeds, capital left in and the return on retained cash.",
-    path: "brrr",
-    metrics: [["Capital recycled", "£72,400"], ["Cash left in", "£18,650"], ["Return on cash", "21.8%"]],
-  },
-  hmo: {
-    count: "02 / 06",
-    kicker: "ROOM-BY-ROOM PERFORMANCE",
-    title: "HMO calculator",
-    copy: "Build income by room, allow for occupancy and utilities, then assess licensing, management and operating costs.",
-    path: "hmo",
-    metrics: [["Gross monthly rent", "£4,150"], ["Operating costs", "£1,240"], ["Net yield", "9.4%"]],
-  },
-  sa: {
-    count: "03 / 06",
-    kicker: "NIGHTLY RATE · OCCUPANCY · COSTS",
-    title: "Serviced accommodation",
-    copy: "Stress-test nightly rates and occupancy against cleaning, platform fees, utilities, management and seasonality.",
-    path: "serviced-accommodation",
-    metrics: [["Occupancy", "68%"], ["Average nightly rate", "£142"], ["Monthly net", "£1,675"]],
-  },
-  split: {
-    count: "04 / 06",
-    kicker: "VALUE CREATION THROUGH SEPARATION",
-    title: "Title split calculator",
-    copy: "Compare acquisition and works costs against the combined end value of separately titled units.",
-    path: "title-split",
-    metrics: [["Combined GDV", "£615k"], ["Project cost", "£481k"], ["Profit on cost", "27.9%"]],
-  },
-  lease: {
-    count: "05 / 06",
-    kicker: "LEASE EXTENSION & MARRIAGE VALUE",
-    title: "Short lease calculator",
-    copy: "Estimate lease-extension cost, fees, post-extension value and the potential value unlocked by the transaction.",
-    path: "short-lease",
-    metrics: [["Lease remaining", "72 yrs"], ["Extension estimate", "£31,500"], ["Potential uplift", "£54,000"]],
-  },
-  commercial: {
-    count: "06 / 06",
-    kicker: "CONVERSION FEASIBILITY",
-    title: "Commercial-to-residential",
-    copy: "Model acquisition, planning and build costs against residential GDV, finance, contingency and target margin.",
-    path: "commercial-to-resi",
-    metrics: [["Residential GDV", "£920k"], ["Total project cost", "£731k"], ["Profit on cost", "25.9%"]],
-  },
-};
+const tourImage = document.querySelector("[data-tour-image]");
+const tourTitle = document.querySelector("[data-tour-title]");
+const tourDescription = document.querySelector("[data-tour-description]");
+const tourPoints = document.querySelector("[data-tour-points]");
+const tourLink = document.querySelector("[data-tour-link]");
+const screenFrame = document.querySelector(".screen-frame");
+const imageDialog = document.querySelector("[data-image-dialog]");
 
-function setRangeProgress(input) {
-  const progress = ((input.value - input.min) / (input.max - input.min)) * 100;
-  input.style.setProperty("--range-progress", `${progress}%`);
-}
-
-function updateAnalysis() {
-  const purchase = Number(document.querySelector("#purchase-price").value);
-  const rent = Number(document.querySelector("#monthly-rent").value);
-  const depositRate = Number(document.querySelector("#deposit").value) / 100;
-  const mortgage = purchase * (1 - depositRate);
-  const annualRent = rent * 12;
-  const grossYield = (annualRent / purchase) * 100;
-  const annualInterest = mortgage * 0.0525;
-  const operatingCosts = annualRent * 0.1 + 1200;
-  const preTaxProfit = Math.max(annualRent - annualInterest - operatingCosts, 0);
-  const companyTax = preTaxProfit * 0.19;
-  const companyMonthly = (preTaxProfit - companyTax) / 12;
-  const personalTaxableProfit = Math.max(annualRent - operatingCosts, 0);
-  const personalTax = Math.max(personalTaxableProfit * 0.4 - annualInterest * 0.2, 0);
-  const personalMonthly = (preTaxProfit - personalTax) / 12;
-  const estimatedSdlt = purchase <= 125000
-    ? purchase * 0.05
-    : 6250 + Math.max(Math.min(purchase, 250000) - 125000, 0) * 0.07
-      + Math.max(purchase - 250000, 0) * 0.10;
-  const cashInvested = purchase * depositRate + estimatedSdlt;
-  const score = Math.max(32, Math.min(94, Math.round(45 + (grossYield - 4) * 7 + (companyMonthly > 0 ? 8 : -8))));
-
-  document.querySelector("#purchase-output").textContent = currency.format(purchase);
-  document.querySelector("#rent-output").textContent = currency.format(rent);
-  document.querySelector("#deposit-output").textContent = `${Math.round(depositRate * 100)}%`;
-  document.querySelector("[data-gross-yield]").textContent = `${grossYield.toFixed(2)}%`;
-  document.querySelector("[data-cash-flow]").textContent = currency.format(companyMonthly);
-  document.querySelector("[data-cash-invested]").textContent = currency.format(cashInvested);
-  document.querySelector("[data-tax-difference]").textContent = `+${currency.format(Math.max(companyMonthly - personalMonthly, 0))} / month`;
-  document.querySelector("[data-score]").textContent = score;
-  document.querySelector("[data-score-bar]").style.width = `${score}%`;
-
-  const verdict = score >= 80
-    ? ["Strong potential", "Attractive headline returns. Validate the assumptions, condition and local evidence before proceeding."]
-    : score >= 65
-      ? ["Promising deal", "Healthy yield with positive after-tax cash flow. Review local rental demand before proceeding."]
-      : score >= 50
-        ? ["Proceed with care", "The margin is workable but sensitive. Test rates, voids and maintenance before committing."]
-        : ["Returns are tight", "Current assumptions leave limited headroom. Consider price, rent or finance changes."];
-  document.querySelector("[data-verdict]").textContent = verdict[0];
-  document.querySelector("[data-verdict-copy]").textContent = verdict[1];
-}
-
-function selectWorkspace(button) {
-  document.querySelectorAll(".workspace-tab").forEach((tab) => {
+function chooseScreen(button) {
+  const screen = screens[button.dataset.screen];
+  document.querySelectorAll(".tour-tab").forEach((tab) => {
     const selected = tab === button;
     tab.classList.toggle("is-active", selected);
-    tab.setAttribute("aria-selected", selected);
+    tab.setAttribute("aria-selected", String(selected));
   });
-  document.querySelectorAll(".workspace-panel").forEach((panel) => {
-    const selected = panel.id === `panel-${button.dataset.workspace}`;
-    panel.hidden = !selected;
-    panel.classList.toggle("is-active", selected);
-  });
-  document.querySelector("[data-workspace-title]").textContent = workspaceTitles[button.dataset.workspace];
+  screenFrame.classList.add("is-changing");
+  const preload = new Image();
+  const updateContent = () => {
+    tourImage.src = screen.image;
+    tourImage.alt = screen.alt;
+    tourTitle.textContent = screen.title;
+    tourDescription.textContent = screen.description;
+    tourPoints.replaceChildren(...screen.points.map((point) => {
+      const item = document.createElement("li");
+      item.textContent = point;
+      return item;
+    }));
+    tourLink.href = screen.href;
+    screenFrame.setAttribute("aria-label", `Enlarge ${screen.title} screenshot`);
+    screenFrame.classList.remove("is-changing");
+  };
+  preload.onload = updateContent;
+  preload.onerror = updateContent;
+  preload.src = screen.image;
 }
 
-function selectCalculator(button) {
-  const item = calculatorData[button.dataset.calculator];
-  document.querySelectorAll(".calculator-chip").forEach((chip) => {
-    const selected = chip === button;
-    chip.classList.toggle("is-active", selected);
-    chip.setAttribute("aria-selected", selected);
-  });
-  document.querySelector("[data-calculator-count]").textContent = item.count;
-  document.querySelector("[data-calculator-kicker]").textContent = item.kicker;
-  document.querySelector("[data-calculator-title]").textContent = item.title;
-  document.querySelector("[data-calculator-copy]").textContent = item.copy;
-  document.querySelector("[data-calculator-link]").href = `https://app.dbpropertiesinvestments.co.uk/calculator/${item.path}`;
-  item.metrics.forEach(([label, value], index) => {
-    const name = ["one", "two", "three"][index];
-    document.querySelector(`[data-metric-${name}-label]`).textContent = label;
-    document.querySelector(`[data-metric-${name}]`).textContent = value;
-  });
-}
-
-const menuToggle = document.querySelector(".menu-toggle");
-const navigation = document.querySelector(".site-nav");
-menuToggle.addEventListener("click", () => {
-  const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
-  menuToggle.setAttribute("aria-expanded", String(!isOpen));
-  navigation.classList.toggle("is-open", !isOpen);
-  document.body.classList.toggle("menu-open", !isOpen);
+document.querySelectorAll(".tour-tab").forEach((button) => {
+  button.addEventListener("click", () => chooseScreen(button));
 });
 
-navigation.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    menuToggle.setAttribute("aria-expanded", "false");
-    navigation.classList.remove("is-open");
-    document.body.classList.remove("menu-open");
-  });
+screenFrame.addEventListener("click", () => {
+  imageDialog.querySelector("img").src = tourImage.src;
+  imageDialog.querySelector("img").alt = tourImage.alt;
+  imageDialog.querySelector("p").textContent = tourTitle.textContent;
+  imageDialog.showModal();
+});
+document.querySelector("[data-close-image]").addEventListener("click", () => imageDialog.close());
+imageDialog.addEventListener("click", (event) => {
+  if (event.target === imageDialog) imageDialog.close();
 });
 
-document.querySelectorAll(".workspace-tab").forEach((button) => {
-  button.addEventListener("click", () => selectWorkspace(button));
+const menuButton = document.querySelector(".menu-button");
+const primaryNav = document.querySelector("#primary-nav");
+menuButton.addEventListener("click", () => {
+  const open = menuButton.getAttribute("aria-expanded") === "true";
+  menuButton.setAttribute("aria-expanded", String(!open));
+  primaryNav.classList.toggle("is-open", !open);
+  document.body.classList.toggle("menu-open", !open);
 });
+primaryNav.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => {
+  menuButton.setAttribute("aria-expanded", "false");
+  primaryNav.classList.remove("is-open");
+  document.body.classList.remove("menu-open");
+}));
 
-document.querySelectorAll(".calculator-chip").forEach((button) => {
-  button.addEventListener("click", () => selectCalculator(button));
-});
-
-document.querySelectorAll('input[type="range"]').forEach((input) => {
-  setRangeProgress(input);
-  input.addEventListener("input", () => {
-    setRangeProgress(input);
-    updateAnalysis();
-  });
-});
-
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("is-visible");
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
-
-document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
-
-const sections = [...document.querySelectorAll("main section[id]")];
-const navLinks = [...navigation.querySelectorAll("a")];
+const navLinks = [...primaryNav.querySelectorAll("a")];
+const observedSections = [...document.querySelectorAll("main section[id]")];
 const sectionObserver = new IntersectionObserver((entries) => {
-  const visible = entries
-    .filter((entry) => entry.isIntersecting)
-    .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-  if (!visible) return;
-  navLinks.forEach((link) => {
-    link.classList.toggle("is-active", link.getAttribute("href") === `#${visible.target.id}`);
-  });
-}, { rootMargin: "-35% 0px -55%", threshold: [0, .25, .5] });
-sections.forEach((section) => sectionObserver.observe(section));
-
-window.addEventListener("scroll", () => {
-  document.querySelector("[data-header]").classList.toggle("is-scrolled", window.scrollY > 20);
-}, { passive: true });
+  const active = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+  if (!active) return;
+  navLinks.forEach((link) => link.classList.toggle("is-active", link.hash === `#${active.target.id}`));
+}, { rootMargin: "-35% 0px -55%", threshold: [0, .2, .5] });
+observedSections.forEach((section) => sectionObserver.observe(section));
 
 document.querySelector("[data-year]").textContent = new Date().getFullYear();
-updateAnalysis();

@@ -3,8 +3,9 @@
 Public, interactive showcase for [BoaTenure](https://app.dbpropertiesinvestments.co.uk),
 the tax-aware UK property investment analysis platform from D B Properties & Investments Ltd.
 
-The site uses illustrative data to demonstrate BoaTenure's product experience. It does not
-contain the application source, customer data, credentials, or proprietary backend services.
+The site uses real BoaTenure application screenshots with representative example data. It
+does not contain the application source, customer data, credentials, or proprietary backend
+services.
 
 ## View the showcase
 
