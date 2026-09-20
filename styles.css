@@ -198,6 +198,30 @@ h1 span, h2 span { color: var(--teal); }
 .source-band p { max-width: 850px; margin: 6px 0 0; color: var(--muted); font-size: 11px; line-height: 1.6; }
 .source-band a { flex: 0 0 auto; color: var(--teal-dark); font-size: 11px; font-weight: 800; }
 
+.page-aware-ai { color: white; background: var(--ink); }
+.page-aware-ai .section-heading h2 { color: white; }
+.page-aware-ai .section-lede { color: rgba(255,255,255,.6); }
+.ai-stage { display: grid; overflow: hidden; grid-template-columns: .74fr 1.26fr; align-items: center; gap: 48px; padding: 48px; border: 1px solid rgba(255,255,255,.11); border-radius: 17px; background: linear-gradient(135deg, rgba(58,181,174,.12), rgba(255,255,255,.025) 52%); }
+.ai-stage-copy h3 { max-width: 470px; margin: 22px 0 14px; color: white; font-size: clamp(32px, 3vw, 45px); line-height: 1.04; letter-spacing: -.05em; }
+.ai-stage-copy > p { margin: 0; color: rgba(255,255,255,.6); font-size: 14px; line-height: 1.75; }
+.ai-context-flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: stretch; gap: 8px; margin-top: 28px; }
+.ai-context-flow span { display: grid; align-content: start; gap: 8px; padding: 14px; border-radius: 8px; background: rgba(255,255,255,.055); }
+.ai-context-flow small { color: var(--gold); font-size: 9px; font-weight: 850; letter-spacing: .12em; }
+.ai-context-flow b { font-size: 12px; line-height: 1.45; }
+.ai-context-flow i { align-self: center; color: var(--teal); font-style: normal; }
+.ai-stage-copy .ai-tool-note { margin-top: 24px; padding: 17px 18px; border-left: 2px solid var(--gold); color: rgba(255,255,255,.55); background: rgba(255,255,255,.035); font-size: 13px; line-height: 1.65; }
+.ai-tool-note b { color: white; }
+.ai-shot { overflow: hidden; width: 100%; border: 1px solid rgba(255,255,255,.15); border-radius: 12px; background: white; box-shadow: 0 26px 70px rgba(0,0,0,.32); }
+.ai-shot img { width: 100%; }
+.ai-context-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 22px; }
+.ai-context-grid article { min-height: 185px; padding: 23px; border: 1px solid rgba(255,255,255,.1); border-radius: 11px; background: rgba(255,255,255,.035); }
+.ai-context-grid span, .ai-guardrail > span { color: var(--gold); font-size: 9px; font-weight: 850; letter-spacing: .13em; }
+.ai-context-grid h3 { margin: 14px 0 8px; color: white; font-size: 18px; line-height: 1.25; letter-spacing: -.025em; }
+.ai-context-grid p { margin: 0; color: rgba(255,255,255,.52); font-size: 13px; line-height: 1.65; }
+.ai-guardrail { display: grid; grid-template-columns: 190px 1fr; align-items: center; gap: 25px; margin-top: 22px; padding: 23px 26px; border: 1px solid rgba(58,181,174,.28); border-radius: 11px; background: rgba(58,181,174,.08); }
+.ai-guardrail p { margin: 0; color: rgba(255,255,255,.58); font-size: 13px; line-height: 1.65; }
+.ai-guardrail b { color: white; }
+
 .source { background: white; }
 .pipeline-branch { display: flex; align-items: stretch; gap: 10px; margin: -10px 0 70px; padding: 18px; border: 1px solid var(--line); border-radius: 13px; background: var(--paper); }
 .pipeline-branch span { flex: 1; display: grid; align-content: center; gap: 3px; padding: 13px; border-radius: 8px; background: white; text-align: center; }
@@ -366,6 +390,8 @@ footer > small { grid-column: 1 / -1; font-size: 9px; }
   .roadmap-grid { grid-template-columns: 1fr; }
   .deal-feed-intro { grid-template-columns: 1fr; gap: 25px; }
   .deal-feed-journey { grid-template-columns: repeat(2, 1fr); }
+  .ai-stage { grid-template-columns: 1fr; }
+  .ai-context-grid { grid-template-columns: repeat(2, 1fr); }
   .final-cta { grid-template-columns: 1fr; gap: 45px; text-align: center; }
   .final-cta-copy { margin-inline: auto; }
   .final-cta-copy > p { margin-inline: auto; }
@@ -418,6 +444,12 @@ footer > small { grid-column: 1 / -1; font-size: 9px; }
   .deal-feed-journey { grid-template-columns: 1fr; }
   .deal-feed-journey article { min-height: 180px; }
   .deal-feed-action { align-items: flex-start; flex-direction: column; gap: 22px; padding: 25px 24px; }
+  .ai-stage { gap: 32px; padding: 28px 20px; }
+  .ai-context-flow { grid-template-columns: 1fr; }
+  .ai-context-flow i { transform: rotate(90deg); text-align: center; }
+  .ai-context-grid { grid-template-columns: 1fr; }
+  .ai-context-grid article { min-height: 0; }
+  .ai-guardrail { grid-template-columns: 1fr; gap: 10px; padding: 22px; }
   .policy-stage { grid-template-columns: 1fr; margin-top: 45px; padding: 28px 20px; }
   .showcase-stack { gap: 65px; }
   .showcase-row, .showcase-row--reverse { grid-template-columns: 1fr; gap: 25px; }
