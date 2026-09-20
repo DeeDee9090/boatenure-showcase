@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" fill="none">
+  <!-- Scope/crosshair icon -->
+  <circle cx="16" cy="20" r="11" stroke="#2BA8A0" stroke-width="2.2" fill="none"/>
+  <circle cx="16" cy="20" r="4" fill="#2BA8A0"/>
+  <line x1="16" y1="5" x2="16" y2="11" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+  <line x1="16" y1="29" x2="16" y2="35" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+  <line x1="1" y1="20" x2="7" y2="20" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+  <line x1="25" y1="20" x2="31" y2="20" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+  <!-- Wordmark -->
+  <text x="38" y="26" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="600" letter-spacing="-0.5">
+    <tspan fill="#2BA8A0">Boa</tspan><tspan fill="#ffffff">Tenure</tspan>
+  </text>
+</svg>
