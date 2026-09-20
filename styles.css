@@ -67,7 +67,7 @@ h1 span, h2 span { color: var(--teal); }
 .browser-bar { height: 35px; display: flex; align-items: center; gap: 5px; padding: 0 12px; background: #182131; }
 .browser-bar i { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.18); }
 .browser-bar small { margin: auto; padding-right: 30px; color: rgba(255,255,255,.35); font-size: 8px; }
-.browser img { width: 100%; aspect-ratio: 1.6; object-fit: cover; object-position: top left; }
+.browser img { width: 100%; }
 .hero-label { display: flex; align-items: center; gap: 9px; margin: 17px 10px 0; }
 .hero-label i { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 12px var(--teal); }
 .hero-label span { color: var(--teal); font-size: 8px; font-weight: 850; letter-spacing: .14em; }
@@ -118,6 +118,8 @@ h1 span, h2 span { color: var(--teal); }
 .case-file small { color: var(--muted); font-size: 9px; }
 .case-file > i { margin-left: auto; padding: 6px 9px; border-radius: 99px; color: var(--teal-dark); background: var(--teal-pale); font-size: 7px; font-style: normal; font-weight: 850; letter-spacing: .1em; }
 .feature-stage { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(270px, .45fr); gap: 32px; align-items: center; }
+.quick-stage { grid-template-columns: minmax(320px, 460px) minmax(0, 1fr); align-items: start; }
+.quick-stage .feature-summary { position: sticky; top: 110px; }
 .feature-summary { padding: 10px 8px; }
 .feature-summary h3 { margin: 15px 0 26px; color: var(--ink); font-size: 33px; letter-spacing: -.045em; }
 .explain-copy { color: var(--muted); font-size: 11px; line-height: 1.7; }
@@ -147,10 +149,6 @@ h1 span, h2 span { color: var(--teal); }
 .intel-card--wide { grid-row: span 2; }
 .intel-card .image-button { width: 100%; border-top: 1px solid var(--line); }
 .intel-card img { width: 100%; }
-.image-crop { overflow: hidden; height: 330px; }
-.image-crop img { height: 100%; object-fit: cover; object-position: top; }
-.micro-signals { display: flex; flex-wrap: wrap; gap: 7px; padding: 14px 18px 18px; }
-.micro-signals span { padding: 5px 8px; border-radius: 5px; color: #536561; background: white; font-size: 8px; font-weight: 700; }
 .policy-stage { display: grid; grid-template-columns: .65fr 1.35fr; align-items: center; gap: 60px; margin-top: 72px; padding: 55px; border-radius: 17px; color: white; background: var(--ink); box-shadow: var(--shadow); }
 .policy-stage h2 { color: white; }
 .policy-explainer { max-width: 490px; margin: 20px 0 0; color: rgba(255,255,255,.57); font-size: 11px; line-height: 1.7; }
@@ -259,8 +257,7 @@ h1 span, h2 span { color: var(--teal); }
 .roadmap-grid p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.6; }
 
 .final-cta { display: flex; min-height: 470px; flex-direction: column; align-items: center; justify-content: center; padding: 80px 20px; color: white; text-align: center; background: var(--ink); }
-.final-cta svg { width: 62px; margin-bottom: 25px; fill: none; stroke: var(--teal); stroke-width: 2; }
-.final-cta .eyebrow { margin-bottom: 12px; }
+.final-cta-logo { width: 180px; margin-bottom: 28px; }
 .final-cta h2 { color: white; }
 .final-cta > div { display: flex; gap: 10px; margin-top: 28px; }
 
@@ -282,6 +279,7 @@ footer > small { grid-column: 1 / -1; font-size: 7px; }
   .site-header nav { gap: 15px; }
   .hero { min-height: 740px; grid-template-columns: .8fr 1.2fr; gap: 35px; }
   .feature-stage { grid-template-columns: 1fr; }
+  .quick-stage { grid-template-columns: minmax(300px, 430px) minmax(0, 1fr); }
   .feature-summary { display: grid; grid-template-columns: auto 1fr; column-gap: 18px; }
   .feature-summary h3 { align-self: center; margin: 0; }
   .feature-summary .signal-grid, .feature-summary > a { grid-column: 1 / -1; }
@@ -324,9 +322,10 @@ footer > small { grid-column: 1 / -1; font-size: 7px; }
   .case-file { align-items: flex-start; flex-direction: column; gap: 9px; margin-bottom: 38px; }
   .case-file > i { margin-left: 0; }
   .case-step-heading h2 { font-size: clamp(39px, 11vw, 52px); }
+  .quick-stage { grid-template-columns: 1fr; }
+  .quick-stage .feature-summary { position: static; }
   .duo-grid, .intelligence-grid, .calculator-gallery, .roadmap-grid { grid-template-columns: 1fr; }
   .intel-card--wide { grid-row: auto; }
-  .image-crop { height: 360px; }
   .policy-stage { grid-template-columns: 1fr; margin-top: 45px; padding: 28px 20px; }
   .showcase-stack { gap: 65px; }
   .showcase-row, .showcase-row--reverse { grid-template-columns: 1fr; gap: 25px; }
