@@ -203,7 +203,7 @@ h1 span, h2 span { color: var(--teal); }
 .reno-detail-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 50px; margin: 45px 0 28px; }
 .reno-detail-heading .eyebrow { margin: 0; }
 .reno-detail-lede { max-width: 460px; margin: 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
-.reno-tools-grid { align-items: start; }
+.reno-tools-grid { align-items: stretch; }
 .reno-extra-shots { display: grid; gap: 12px; padding: 16px; border-top: 1px solid var(--line); background: white; }
 .reno-extra-shot { overflow: hidden; border: 1px solid var(--line); border-radius: 9px; text-align: left; background: var(--paper); }
 .reno-extra-shot span { display: block; padding: 9px 12px; color: var(--teal-dark); font-size: 9px; font-weight: 850; letter-spacing: .12em; }
