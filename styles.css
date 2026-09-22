@@ -118,7 +118,7 @@ h1 span, h2 span { color: var(--teal); }
 .case-file small { color: var(--muted); font-size: 11px; }
 .case-file > i { margin-left: auto; padding: 6px 9px; border-radius: 99px; color: var(--teal-dark); background: var(--teal-pale); font-size: 9px; font-style: normal; font-weight: 850; letter-spacing: .1em; }
 .feature-stage { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(270px, .45fr); gap: 32px; align-items: center; }
-.quick-proof-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; align-items: start; }
+.quick-proof-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; align-items: stretch; }
 .quick-proof-stack { display: contents; }
 .quick-proof-card, .quick-result-card { overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); }
 .quick-proof-card .image-button { width: 100%; border-top: 1px solid var(--line); }
