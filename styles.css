@@ -198,6 +198,11 @@ h1 span, h2 span { color: var(--teal); }
 .source-band p { max-width: 850px; margin: 6px 0 0; color: var(--muted); font-size: 11px; line-height: 1.6; }
 .source-band a { flex: 0 0 auto; color: var(--teal-dark); font-size: 11px; font-weight: 800; }
 
+.reno-detail-intro { margin: 45px 0 32px; padding: 20px 24px; border-left: 3px solid var(--gold); background: #f3f7f7; }
+.reno-detail-intro span { display: block; margin-bottom: 6px; color: var(--gold); font-size: 9px; font-weight: 850; letter-spacing: .13em; }
+.reno-detail-intro p { max-width: 850px; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.65; }
+.reno-detail-stack .intel-card .card-heading { max-width: 760px; }
+
 .page-aware-ai { color: white; background: var(--ink); }
 .page-aware-ai .section-heading h2 { color: white; }
 .page-aware-ai .section-lede { color: rgba(255,255,255,.6); }
